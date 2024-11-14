@@ -4,7 +4,7 @@ from src.data_loader import load_csv_data, fetch_google_sheet_data
 from src.search_api import perform_search_for_all_entities
 from src.llm_parser import parse_info
 
-# Streamlit app configuration
+# Header Streamlit Page
 st.title("AI Agent Dashboard")
 st.subheader("Upload a CSV file or connect a Google Sheet")
 
@@ -24,24 +24,25 @@ if sheet_id and range_name:
     st.write("Data Preview", data.head())
 
 # Dynamic query input for web search
-st.subheader("Define Search Query")
-query_template = st.text_input("Enter your query template (e.g., 'Get the email address of {company}')")
+st.subheader("Define Search Query(Web Search)")
+query_template = st.text_input("Enter your query template (Place holder can be passed like : {company}')")
 
 # Column selection for entities
 if data is not None:
     selected_column = st.selectbox("Select the column with entities", data.columns)
+    st.write("Entities are :", data[selected_column].tolist())
 
 # Custom prompt for information extraction
-st.subheader("Define Extraction Prompt")
-extraction_prompt = st.text_input("Enter extraction prompt (e.g., 'Extract the email address of {company} from the following web results.')")
+st.subheader("Define Extraction Prompt(LLM)")
+extraction_prompt = st.text_input("Enter extraction prompt (Place holder can be passed like : {company}')")
 
 # Perform search and extract information
 if st.button("Fetch and Extract Information"):
     if data is not None and query_template and extraction_prompt:
-        # Get list of entities from the selected column
+        # list of all entities of that column
         entities = data[selected_column].tolist()
         
-        # Perform search for all entities using the query template
+        # Search for each enitity
         search_results = perform_search_for_all_entities(query_template, entities)
         st.write("Search Results:", search_results)
         

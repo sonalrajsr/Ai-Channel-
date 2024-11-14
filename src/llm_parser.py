@@ -1,4 +1,3 @@
-from transformers import pipeline
 from langchain_groq import ChatGroq
 import re
 
@@ -19,16 +18,14 @@ def extract_specific_info(entity, search_results, user_prompt):
     if not place_holders:
         return "No placeholder found in the user prompt."
     
-    place_holder = place_holders[0]  # Assuming there's only one placeholder to replace
+    place_holder = place_holders[0] # assuming only one place holder
     
-    # Ensure the placeholder is correctly replaced in the user prompt
-    prompt = user_prompt.format(**{place_holder: entity})  # Replace the placeholder with the entity name
+    prompt = user_prompt.format(**{place_holder: entity})
 
-    # Generate the final prompt to send to the LLM
     full_prompt = f"{prompt} Here is the information: {combined_text}"
     
     try:
-        # Use the LLM to summarize and extract the required information
+        # Using the LLM to summarize and extract the required information
         summary = llm_model.invoke(full_prompt)
         return summary.content
     

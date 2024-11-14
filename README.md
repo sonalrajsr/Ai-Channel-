@@ -21,18 +21,27 @@ The AI Agent Dashboard leverages free resources to build a functional AI agent w
 
 - **Frontend/UI**: [Streamlit](https://streamlit.io/)
 - **Data Handling**: [Pandas](https://pandas.pydata.org/)
-- **Search API**: [DuckDuckGo](https://api.duckduckgo.com/) (free)
-- **Language Model**: [Hugging Face Transformers](https://huggingface.co/transformers/)
+- **Search API**: [Serpapi](https://serpapi.com/) (free)
+- **Language Model**: [Gorq(Model :- gemma2-9b-it)](https://groq.com/)
 - **Backend Language**: Python
 
 ---
 
 ## Project Structure
 
+The project is organized into modular files and folders, with the following structure:
+
 ```plaintext
-my_ai_agent_project/
-├── README.md               # Project documentation
-├── app.py                  # Main application file
-├── search_api.py           # API handling code for DuckDuckGo
-├── data_processor.py       # Data processing and information extraction code
-└── requirements.txt        # List of dependencies
+AI AGENT/
+├── myenv/                      # Virtual environment (not included in the repo)
+├── src/                        # Source code directory
+│   ├── data_loader.py          # Handles data loading from CSV/Google Sheets
+│   ├── llm_parser.py           # Processes data using language models
+│   ├── search_api.py           # Contains API handling for DuckDuckGo
+│   ├── utils/                  # Utility functions
+│   │   └── helper_functions.py # Helper functions used across the project
+├── .env                        # Environment variable configuration file
+├── .gitignore                  # Git ignore file
+├── app.py                      # Main application file (Streamlit)
+├── README.md                   # Project documentation
+└── requirements.txt            # List of dependencies

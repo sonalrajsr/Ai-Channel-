@@ -1,8 +1,12 @@
 from transformers import pipeline
+from langchain_groq import ChatGroq
 import re
 
-# Initialize the summarizer model (DistilBART is lightweight and good for summarization)
-summarizer = pipeline("summarization", model="sshleifer/distilbart-cnn-12-6")
+llm_model = ChatGroq(
+    temperature=0,
+    groq_api_key = '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',
+    model = "gemma2-9b-it"
+)
 
 def extract_specific_info(entity, search_results, user_prompt):
     # Combine search snippets into one text block for the LLM
@@ -25,8 +29,8 @@ def extract_specific_info(entity, search_results, user_prompt):
     
     try:
         # Use the LLM to summarize and extract the required information
-        summary = summarizer(full_prompt, max_length=50, min_length=25, do_sample=False)
-        return summary[0]['summary_text']
+        summary = llm_model.invoke(full_prompt)
+        return summary.content
     
     except Exception as e:
         print(f"Error processing entity '{entity}': {e}")

@@ -45,6 +45,7 @@ AI AGENT/
 ├── app.py                      # Main application file (Streamlit)
 ├── README.md                   # Project documentation
 └── requirements.txt            # List of dependencies
+```
 
 # Project Setup Instructions
 

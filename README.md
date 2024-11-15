@@ -27,6 +27,15 @@ The AI Agent Dashboard leverages free resources to build a functional AI agent w
 
 ---
 
+## Demo
+Visit this link for demo, Working of website and model.
+```
+https://youtu.be/PhfObjw9oGE
+```
+[![Watch the video](https://img.youtube.com/vi/PhfObjw9oGE/maxresdefault.jpg)](https://www.youtube.com/watch?v=PhfObjw9oGE)
+
+
+
 ## Project Structure
 
 The project is organized into modular files and folders, with the following structure:

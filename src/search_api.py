@@ -2,6 +2,10 @@ import time
 from serpapi import GoogleSearch
 import re 
 import streamlit as st
+import os 
+from dotenv import load_dotenv
+
+load_dotenv()
 
 def search_entity(query_template, entity):
     # Extract the placeholder from the query_template using regex
@@ -24,7 +28,7 @@ def search_entity(query_template, entity):
     params = {
         "engine": "google",
         "q": query,
-        "api_key": '30064ac4d6420f4efbda97e5dd97d09933f72964ba991c111c6aa146c5de6f05'
+        "api_key": os.getenv("SERP_API_KEY")
     }
     
     search = GoogleSearch(params)

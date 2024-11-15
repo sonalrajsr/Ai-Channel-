@@ -37,9 +37,7 @@ AI AGENT/
 ├── src/                        # Source code directory
 │   ├── data_loader.py          # Handles data loading from CSV/Google Sheets
 │   ├── llm_parser.py           # Processes data using language models
-│   ├── search_api.py           # Contains API handling for DuckDuckGo
-│   ├── utils/                  # Utility functions
-│   │   └── helper_functions.py # Helper functions used across the project
+│   ├── search_api.py           # Contains API handling for Serpapi
 ├── .env                        # Environment variable configuration file
 ├── .gitignore                  # Git ignore file
 ├── app.py                      # Main application file (Streamlit)

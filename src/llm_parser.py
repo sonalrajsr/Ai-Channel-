@@ -1,10 +1,13 @@
 from langchain_groq import ChatGroq
 import re
-import json  # Add import for handling JSON if needed
+import os 
+from dotenv import load_dotenv
+
+load_dotenv()
 
 llm_model = ChatGroq(
     temperature=0,
-    groq_api_key='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',
+    groq_api_key= os.getenv("GROQ_API_KEY"),
     model="gemma2-9b-it"
 )
 
